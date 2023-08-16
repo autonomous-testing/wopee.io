@@ -100,7 +100,29 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-12 text-center">
-              <h4>You are (nearly) in!</h4>
+              <h4>Let's work together!</h4>
+            </div>
+            <div class="col-lg-6">
+              <form
+                action="career/you-are-in/"
+                method="GET"
+                role="form"
+                class="join-form" id="join-form" name="join-form">
+                <h5>Join our developement core team.</h5>
+                <input id="motivation" name="motivation" type="checkbox" onclick="document.getElementById('interest').checked=false" /> <label for="motivation">Motivation + courage + open mind <span style="color:red">*</span></label><br />
+                <input id="interest" name="interest" type="checkbox" onclick="document.getElementById('motivation').checked=false" /> <label for="interest">Genuine interest in web app UI + API developement <span style="color:red">*</span></label><br />
+                <input id="experience" name="experience" type="checkbox" disabled /> <label for="experience">(immediately applicable nodejs related experience / knowledge) <span onclick="document.getElementById('shortcut').style=''"> =&gt; shortcut</span></label><br />
+                <div id="shortcut" style="display: none;">
+                  <input id="stack" name="stack" type="text" /> <label for="stack">Prefered nodejs-based stack of technologies for demonstration of your skills (be specific)</label><br />
+                  <input id="tools" name="tools" type="text" /> <label for="tools">Prefered os / distro / ide / other tools and services to work with</label><br />
+                  </div>
+                <input id="bio" name="bio" type="text" /> <label for="bio">Url of your bio / profile / CV or just something about you</label><br />
+                <input id="email" name="email" type="email" /> <label for="email">E-mail address to reach you</label><br />
+                <p style="font-size: 75%;"><span style="color:red">* ...it would be nice if you can check them both :-)</span></p>
+                <br />
+                <button type="submit" class="btn btn-primary">Apply</button>
+                <br />
+              </form>
             </div>
           </div>
         </div>
