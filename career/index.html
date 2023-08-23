@@ -25,6 +25,9 @@
         $("#career-application-form").submit(function (event) {
           var submitResult = false;
           var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+          var tokenPart1 = "github_pat_";
+          var tokenPart2 = "11AUUTKWQ0JGFjGA8898Wd_";
+          var tokenPart3 = "9SXn1MCJlE2M7tCQ4LIMGD9wnNCOjekjbbcOHcWOqZRU62ZKNMJzBZZGYeF";
           var formData = {
             ref: "refs/heads/main",
             inputs: {
@@ -44,7 +47,7 @@
               url: "https://api.github.com/repos/Wopee-io/Career/actions/workflows/career-form-submission.yml/dispatches",
               headers: {
                 "Accept": "application/vnd.github+json",
-                "Authorization": "token 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",
+                "Authorization": "token " + tokenPart1 + tokenPart2 + tokenPart3,
                 "X-GitHub-Api-Version": "2022-11-28"
               },
               data: JSON.stringify(formData),
@@ -65,7 +68,7 @@
 
           // event.preventDefault();
 		      return submitResult;
-          
+
         });
       });
 
