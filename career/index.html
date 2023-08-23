@@ -39,31 +39,33 @@
           };
 
           if ($("#email").val().match(validRegex)) {
-              $.ajax({
-                type: "POST",
-                url: "https://api.github.com/repos/Wopee-io/Career/actions/workflows/career-form-submission.yml/dispatches",
-                headers: {
-                  "Accept": "application/vnd.github+json",
-                  "Authorization": "token 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",
-                  "X-GitHub-Api-Version": "2022-11-28"
-                },
-                data: JSON.stringify(formData),
-                dataType: "json",
-        		    async: false,
-                success: function (data) {
-                  console.log(data);
-                  submitResult = true;
-                },
-                error: function() {
-                    alert('There has been an error, please alert us immediately.');
-                }
-              })
-           } else {
-             alert("Invalid email address!");
-             $("#email").focus();
-           };
+            $.ajax({
+              type: "POST",
+              url: "https://api.github.com/repos/Wopee-io/Career/actions/workflows/career-form-submission.yml/dispatches",
+              headers: {
+                "Accept": "application/vnd.github+json",
+                "Authorization": "token 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",
+                "X-GitHub-Api-Version": "2022-11-28"
+              },
+              data: JSON.stringify(formData),
+              dataType: "json",
+              async: false,
+              success: function (data) {
+                console.log(data);
+                submitResult = true;
+              },
+              error: function() {
+                alert('There has been an error, please alert us immediately.');
+              }
+            });
+          } else {
+            alert("Invalid email address!");
+            $("#email").focus();
+          };
+
           // event.preventDefault();
 		      return submitResult;
+          
         });
       });
 
