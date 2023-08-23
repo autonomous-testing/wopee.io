@@ -31,9 +31,9 @@
           var formData = {
             ref: "refs/heads/main",
             inputs: {
-              motivation: $("#motivation").val(),
-              interest: $("#interest").val(),
-              experience: $("#experience").val(),
+              motivation: $("#motivation").is(':checked'),
+              interest: $("#interest").is(':checked'),
+              experience: $("#experience").is(':checked'),
               stack: $("#stack").val(),
               tools: $("#tools").val(),
               bio: $("#bio").val(),
