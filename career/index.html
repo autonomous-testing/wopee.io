@@ -16,6 +16,46 @@
       gtag("config", "G-PVTHWLV51B");
     </script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <script>
+
+      $(document).ready(function () {
+        $("career-application-form").submit(function (event) {
+          var formData = {
+            ref: "refs/heads/main",
+            inputs: {
+              motivation: $("#motivation").val(),
+              interest: $("#interest").val(),
+              experience: $("#experience").val(),
+              stack: $("#stack").val(),
+              tools: $("#tools").val(),
+              bio: $("#bio").val(),
+              email: $("#email").val(),
+            }
+          };
+
+          $.ajax({
+            type: "POST",
+            url: "https://api.github.com/repos/Wopee-io/Career/actions/workflows/career-form-submission.yml/dispatches",
+            headers: {
+              "Accept": "application/vnd.github+json",
+              "Authorization": "token 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",
+              "X-GitHub-Api-Version": "2022-11-28"
+            },
+            data: formData,
+            dataType: "json",
+            encode: true,
+          }).done(function (data) {
+            console.log(data);
+          });
+
+          // event.preventDefault();
+        });
+      });
+
+    </script>
+
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -107,7 +147,7 @@
                 action="you-are-in.html"
                 method="GET"
                 role="form"
-                class="join-form" id="join-form" name="join-form">
+                class="join-form" id="join-form" name="career-application-form">
                 <h5>Join our developement core team.</h5>
                 <p>You just need:</p>
                 <ul>
@@ -125,8 +165,8 @@
                   <label for="stack">Prefered stack of technologies for demonstration of your skills (be specific):</label> <input id="stack" name="stack" type="text" /><br />
                   <label for="tools">Prefered os / distro / ide / other tools and services to work with:</label> <input id="tools" name="tools" type="text" /><br />
                   </div>
-                <label for="bio">Url of your bio / profile / CV or just something about you:</label> <input id="bio" name="bio" type="url"/><br />
-                <label for="email">E-mail address to reach you:</label> <input id="email" name="email" type="email" /> <br />
+                <label for="bio">Url of your bio / profile / CV or just something about you:</label> <input id="bio" name="bio" type="text"/><br />
+                <label for="email">E-mail address to reach you:</label> <input id="email" name="email" type="text" /> <br />
                 <p style="font-size: 75%; margin-top: 1rem;"><span style="color:red">* ...it would be nice if you can check them both :-)</span></p>
                 <button type="submit" class="btn btn-primary">Apply</button>
                 <br />
